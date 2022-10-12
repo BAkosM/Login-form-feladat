@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (hiba3 === 0) {
                     if (hiba4 === 0) {
                         if (hiba5 === 0) {
+                            alert("Minden rendben!");
                         }
                         else {
                             alert("Nem egyezik a két jelszó!");
