@@ -1,9 +1,8 @@
-
-const password = document.getElementById('password');
 var hiba1 :number = 0;
 var hiba2 :number = 0;
 var hiba3 :number = 0;
 var hiba4 :number = 0;
+var hiba5 :number = 0;
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("username")!.addEventListener("change", () => {
         const username = (document.getElementById('username') as HTMLInputElement).value;
@@ -42,17 +41,45 @@ document.addEventListener("DOMContentLoaded", () => {
             hiba3 = 0;
         }
     });
+    document.getElementById("password")!.addEventListener("change", () => {
+        const password = (document.getElementById('password') as HTMLInputElement).value;
+        var conditions = /^[a-zA-Z\-0-9.-_]/;
+        if (password.length > 4 && password.length < 11){
+            if (password.match(conditions)){
+                hiba4 = 0;
+            } else {
+                hiba4 = 2;
+            }
+        } else {
+            hiba4 = 1;
+        }
+    });
+    document.getElementById("password2")!.addEventListener("change", () => {
+        const password = (document.getElementById('password') as HTMLInputElement).value;
+        const repassword = (document.getElementById('password2') as HTMLInputElement).value;
+        if (password != repassword){
+            hiba5 = 1;
+        } else {
+            hiba5 = 0;
+        }
+    });
     document.getElementById("submit")!.addEventListener("click", () => {
         if (hiba1 === 0) {
             if (hiba2 === 0) {
                 if (hiba3 === 0) {
                     if (hiba4 === 0) {
+                        if (hiba5 === 0) {
 
+                        } else {
+                            alert("Nem egyezik a két jelszó!");
+                        }
+                    } else if (hiba4 === 1){
+                        alert("Jelszónak 5-10 karakter hoszúnak kell lennie!")
                     } else {
-
+                        alert("Nem megfelelő karakter a jelszóban!");
                     }
                 } else {
-                    alert("Nem egyezik a két email!")
+                    alert("Nem egyezik a két email!");
                 }
             } else {
                 alert("Email nem megfelelő!");
